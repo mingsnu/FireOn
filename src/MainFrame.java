@@ -1,6 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Title: MainFrame.java
+ * Description: MainFrame class
+ * @author Weicheng Zhu
+ * @data 2013. 4. 22. PM 9:44:46
+ * @version 0.001
+ */
 public class MainFrame extends JFrame {
 
 	// Constructor of the MainFrame

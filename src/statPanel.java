@@ -3,6 +3,13 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Title: statPanel.java
+ * Description: statPanel is at the foot of the frame used to display users' state and statistics.
+ * @author Weicheng Zhu
+ * @data 2013. 4. 22. PM 9:48:11
+ * @version 0.001
+ */
 class statPanel extends JPanel {
 	public statPanel(JLabel whoseLbl) {
 		int headShotNum = 0;

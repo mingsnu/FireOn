@@ -8,6 +8,13 @@ import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
+/**
+ * Title: toolBar.java
+ * Description: tooBar class is used to customize the Tool Bar.
+ * @author Weicheng Zhu
+ * @data 2013. 4. 22. PM 9:49:26
+ * @version 0.001
+ */
 public class toolBar extends JToolBar {
 	// ToolBar buttons declaration
 	static JButton userBtn = new JButton(new ImageIcon("./img/user.png"));

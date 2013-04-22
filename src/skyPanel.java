@@ -4,13 +4,20 @@ import java.util.Stack;
 
 import javax.swing.*;
 
-// One user panel
+/**
+ * Title: skyPanel.java
+ * Description: skyPanel is used to build single panel.
+ * @author Weicheng Zhu
+ * @data 2013. 4. 22. PM 9:47:11
+ * @version 0.001
+ */
 class skyPanel extends JPanel {
 	public static final int NROW = 10;
 	public static final int NCOL = 10;
 	static int planeNum = 0;
-	static Stack<Integer> idStack = new Stack<Integer>();	
-	Color[] planeColor = {pallet.papayaWhip, pallet.grassGreen, pallet.lightPurple};
+	static Stack<Integer> idStack = new Stack<Integer>();
+	Color[] planeColor = { pallet.papayaWhip, pallet.grassGreen,
+			pallet.lightPurple };
 	cell[][] cellBtn = new cell[10][10];
 
 	public skyPanel(Color bgcolor) {
@@ -62,62 +69,86 @@ class skyPanel extends JPanel {
 							cellBtn[x + 1][y - 2] };
 					int id = idStack.pop();
 					for (int i = 0; i < cellbtnArray.length; i++) {
-						// Set each button's 'id' and 'bgColor' attributes
+						// Set each button's attributes
 						cellbtnArray[i].id = id;
-						cellbtnArray[i].bgColor = planeColor[id -1]; 
-						cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);						
+						cellbtnArray[i].isNull = false;
+						cellbtnArray[i].bgColor = planeColor[id - 1];
+						cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 					}
+					for (int j = 1; j < cellbtnArray.length; j++) {
+						cellbtnArray[j].isBody = true;
+					}
+					cellBtn[x][y + 1].isHead = true;
 					planeNum++;
 				}
 			}
-			
+
 			if (toolBar.rightPlaneBtn.isSelected()) {
 				if (x > 1 && x < 9 && y > 1 && y < 8) {
-					cell[] cellbtnArray = { cellBtn[x - 2][y + 1],
-							cellBtn[x - 2][y], cellBtn[x - 2][y - 1],
-							cellBtn[x - 1][y], cellBtn[x][y + 2],
-							cellBtn[x][y + 1], cellBtn[x][y], cellBtn[x][y - 1],
-							cellBtn[x][y - 2], cellBtn[x + 1][y] };
+					cell[] cellbtnArray = { cellBtn[x + 1][y],
+							cellBtn[x][y + 2], cellBtn[x][y + 1],
+							cellBtn[x][y], cellBtn[x][y - 1],
+							cellBtn[x][y - 2], cellBtn[x - 1][y],
+							cellBtn[x - 2][y + 1], cellBtn[x - 2][y],
+							cellBtn[x - 2][y - 1] };
 					int id = idStack.pop();
 					for (int i = 0; i < cellbtnArray.length; i++) {
 						cellbtnArray[i].id = id;
-						cellbtnArray[i].bgColor = planeColor[id-1]; 
+						cellbtnArray[i].isNull = false;
+						cellbtnArray[i].bgColor = planeColor[id - 1];
 						cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 					}
+					for (int j = 1; j < cellbtnArray.length; j++) {
+						cellbtnArray[j].isBody = true;
+					}
+					cellBtn[x + 1][y].isHead = true;
 					planeNum++;
 				}
 			}
-			
+
 			if (toolBar.downPlaneBtn.isSelected()) {
 				if (x > 1 && x < 8 && y > 0 && y < 8) {
-					cell[] cellbtnArray = { cellBtn[x][y - 1], cellBtn[x - 2][y],
-							cellBtn[x - 1][y], cellBtn[x][y], cellBtn[x + 1][y],
+					cell[] cellbtnArray = { cellBtn[x][y - 1],
+							cellBtn[x - 2][y], cellBtn[x - 1][y],
+							cellBtn[x][y], cellBtn[x + 1][y],
 							cellBtn[x + 2][y], cellBtn[x][y + 1],
 							cellBtn[x - 1][y + 2], cellBtn[x][y + 2],
 							cellBtn[x + 1][y + 2] };
 					int id = idStack.pop();
 					for (int i = 0; i < cellbtnArray.length; i++) {
 						cellbtnArray[i].id = id;
-						cellbtnArray[i].bgColor = planeColor[id-1]; 
+						cellbtnArray[i].isNull = false;
+						cellbtnArray[i].bgColor = planeColor[id - 1];
 						cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 					}
+					for (int j = 1; j < cellbtnArray.length; j++) {
+						cellbtnArray[j].isBody = true;
+					}
+					cellBtn[x][y - 1].isHead = true;
 					planeNum++;
 				}
 			}
 
 			if (toolBar.leftPlaneBtn.isSelected()) {
 				if (x > 0 && x < 8 && y > 1 && y < 8) {
-					cell[] cellbtnArray = { cellBtn[x + 2][y + 1],
-							cellBtn[x + 2][y], cellBtn[x + 2][y - 1],
-							cellBtn[x + 1][y], cellBtn[x][y + 2],
-							cellBtn[x][y + 1], cellBtn[x][y], cellBtn[x][y - 1],
-							cellBtn[x][y - 2], cellBtn[x - 1][y] };
+					cell[] cellbtnArray = { cellBtn[x - 1][y],
+							cellBtn[x][y + 2], cellBtn[x][y + 1],
+							cellBtn[x][y], cellBtn[x][y - 1],
+							cellBtn[x][y - 2], cellBtn[x + 1][y],
+							cellBtn[x + 2][y + 1], cellBtn[x + 2][y],
+							cellBtn[x + 2][y - 1]
+					};
 					int id = idStack.pop();
 					for (int i = 0; i < cellbtnArray.length; i++) {
 						cellbtnArray[i].id = id;
-						cellbtnArray[i].bgColor = planeColor[id-1]; 
+						cellbtnArray[i].isNull = false;
+						cellbtnArray[i].bgColor = planeColor[id - 1];
 						cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 					}
+					for (int j = 1; j < cellbtnArray.length; j++) {
+						cellbtnArray[j].isBody = true;
+					}
+					cellBtn[x-1][y].isHead = true;
 					planeNum++;
 				}
 			}
@@ -146,9 +177,10 @@ class skyPanel extends JPanel {
 						cellbtnArray[i].setBackground(Color.green);
 					} else {
 						cellbtnArray[i].setBackground(Color.red);
-						// If there is an overlap between planes, set the button can't be pressed
-						if(cellbtn.isEnabled())
-							cellbtn.setEnabled(false); 
+						// If there is an overlap between planes, set the button
+						// can't be pressed
+						if (cellbtn.isEnabled())
+							cellbtn.setEnabled(false);
 					}
 				}
 			}
@@ -156,18 +188,18 @@ class skyPanel extends JPanel {
 
 		if (toolBar.rightPlaneBtn.isSelected()) {
 			if (x > 1 && x < 9 && y > 1 && y < 8) {
-				cell[] cellbtnArray = { cellBtn[x - 2][y + 1],
-						cellBtn[x - 2][y], cellBtn[x - 2][y - 1],
-						cellBtn[x - 1][y], cellBtn[x][y + 2],
+				cell[] cellbtnArray = { cellBtn[x + 1][y], cellBtn[x][y + 2],
 						cellBtn[x][y + 1], cellBtn[x][y], cellBtn[x][y - 1],
-						cellBtn[x][y - 2], cellBtn[x + 1][y] };
+						cellBtn[x][y - 2], cellBtn[x - 1][y],
+						cellBtn[x - 2][y + 1], cellBtn[x - 2][y],
+						cellBtn[x - 2][y - 1] };
 
 				for (int i = 0; i < cellbtnArray.length; i++) {
 					if (cellbtnArray[i].id == 0) {
 						cellbtnArray[i].setBackground(Color.green);
 					} else {
 						cellbtnArray[i].setBackground(Color.red);
-						if(cellbtn.isEnabled())
+						if (cellbtn.isEnabled())
 							cellbtn.setEnabled(false);
 					}
 				}
@@ -186,7 +218,7 @@ class skyPanel extends JPanel {
 						cellbtnArray[i].setBackground(Color.green);
 					} else {
 						cellbtnArray[i].setBackground(Color.red);
-						if(cellbtn.isEnabled())
+						if (cellbtn.isEnabled())
 							cellbtn.setEnabled(false);
 					}
 				}
@@ -195,18 +227,20 @@ class skyPanel extends JPanel {
 
 		if (toolBar.leftPlaneBtn.isSelected()) {
 			if (x > 0 && x < 8 && y > 1 && y < 8) {
-				cell[] cellbtnArray = { cellBtn[x + 2][y + 1],
-						cellBtn[x + 2][y], cellBtn[x + 2][y - 1],
-						cellBtn[x + 1][y], cellBtn[x][y + 2],
-						cellBtn[x][y + 1], cellBtn[x][y], cellBtn[x][y - 1],
-						cellBtn[x][y - 2], cellBtn[x - 1][y] };
-
+				cell[] cellbtnArray = { cellBtn[x - 1][y],
+						cellBtn[x][y + 2], cellBtn[x][y + 1],
+						cellBtn[x][y], cellBtn[x][y - 1],
+						cellBtn[x][y - 2], cellBtn[x + 1][y],
+						cellBtn[x + 2][y + 1], cellBtn[x + 2][y],
+						cellBtn[x + 2][y - 1]
+				};
+				
 				for (int i = 0; i < cellbtnArray.length; i++) {
 					if (cellbtnArray[i].id == 0) {
 						cellbtnArray[i].setBackground(Color.green);
 					} else {
 						cellbtnArray[i].setBackground(Color.red);
-						if(cellbtn.isEnabled())
+						if (cellbtn.isEnabled())
 							cellbtn.setEnabled(false);
 					}
 				}
@@ -215,7 +249,7 @@ class skyPanel extends JPanel {
 
 		// cellbtn.setBackground(Color.green);
 		cellbtn.setText(x + ", " + y);
-		//cellbtn.setText(cellbtn.id + "");
+		// cellbtn.setText(cellbtn.id + "");
 
 	}
 
@@ -235,7 +269,8 @@ class skyPanel extends JPanel {
 						cellBtn[x + 1][y - 2] };
 
 				for (int i = 0; i < cellbtnArray.length; i++) {
-					// When the mouse exits the button, set back to the original background color
+					// When the mouse exits the button, set back to the original
+					// background color
 					cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 				}
 				cellbtn.setEnabled(true);
@@ -244,11 +279,11 @@ class skyPanel extends JPanel {
 
 		if (toolBar.rightPlaneBtn.isSelected()) {
 			if (x > 1 && x < 9 && y > 1 && y < 8) {
-				cell[] cellbtnArray = { cellBtn[x - 2][y + 1],
-						cellBtn[x - 2][y], cellBtn[x - 2][y - 1],
-						cellBtn[x - 1][y], cellBtn[x][y + 2],
+				cell[] cellbtnArray = { cellBtn[x + 1][y], cellBtn[x][y + 2],
 						cellBtn[x][y + 1], cellBtn[x][y], cellBtn[x][y - 1],
-						cellBtn[x][y - 2], cellBtn[x + 1][y] };
+						cellBtn[x][y - 2], cellBtn[x - 1][y],
+						cellBtn[x - 2][y + 1], cellBtn[x - 2][y],
+						cellBtn[x - 2][y - 1] };
 				for (int i = 0; i < cellbtnArray.length; i++) {
 					cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 				}
@@ -272,11 +307,14 @@ class skyPanel extends JPanel {
 
 		if (toolBar.leftPlaneBtn.isSelected()) {
 			if (x > 0 && x < 8 && y > 1 && y < 8) {
-				cell[] cellbtnArray = { cellBtn[x + 2][y + 1],
-						cellBtn[x + 2][y], cellBtn[x + 2][y - 1],
-						cellBtn[x + 1][y], cellBtn[x][y + 2],
-						cellBtn[x][y + 1], cellBtn[x][y], cellBtn[x][y - 1],
-						cellBtn[x][y - 2], cellBtn[x - 1][y] };
+				cell[] cellbtnArray = { cellBtn[x - 1][y],
+						cellBtn[x][y + 2], cellBtn[x][y + 1],
+						cellBtn[x][y], cellBtn[x][y - 1],
+						cellBtn[x][y - 2], cellBtn[x + 1][y],
+						cellBtn[x + 2][y + 1], cellBtn[x + 2][y],
+						cellBtn[x + 2][y - 1]
+				};
+
 				for (int i = 0; i < cellbtnArray.length; i++) {
 					cellbtnArray[i].setBackground(cellbtnArray[i].bgColor);
 				}
