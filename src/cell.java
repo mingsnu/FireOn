@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JButton;
 
 /**
@@ -15,7 +17,8 @@ public class cell extends JButton{
 	public boolean isNull;
 	public boolean isHead;
 	public boolean isBody;
-	public boolean isClicked;	
+	public boolean isClicked;
+	Font buttonFont=new Font("Serif", Font.PLAIN, 20);  
 	
 	public cell(int x, int y){
 		this.id=0;
@@ -27,7 +30,8 @@ public class cell extends JButton{
 		this.isBody = false;
 		this.isClicked = false;
 		this.setBackground(this.bgColor);
-		this.setForeground(Color.white);
+		this.setForeground(Color.black);
+		this.setFont(buttonFont);
 		//this.setForeground(Color.blue);
 	}
 

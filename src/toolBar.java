@@ -20,6 +20,8 @@ public class toolBar extends JToolBar {
 	static JButton userBtn = new JButton(new ImageIcon("./img/user.png"));
 	static JButton newBtn = new JButton(new ImageIcon("./img/new.png"));
 	static JButton saveBtn = new JButton(new ImageIcon("./img/save.png"));
+	static JButton readyBtn = new JButton("Ready"); 
+
 	static JToggleButton upPlaneBtn = new JToggleButton(new ImageIcon(
 			"./img/upPlane.png"));
 	static JToggleButton rightPlaneBtn = new JToggleButton(new ImageIcon(
@@ -29,8 +31,8 @@ public class toolBar extends JToolBar {
 	static JToggleButton leftPlaneBtn = new JToggleButton(new ImageIcon(
 			"./img/leftPlane.png"));
 	static ButtonGroup planeGroup = new ButtonGroup();
-
-	public toolBar(String string, int horizontal) {
+	
+	public toolBar(String string, int horizontal, MainFrame mf) {
 		// Button styles
 		userBtn.setBorderPainted(false);
 		newBtn.setBorderPainted(false);
@@ -44,6 +46,7 @@ public class toolBar extends JToolBar {
 		userBtn.addActionListener(userBtnActionListener);
 		newBtn.addActionListener(newBtnActionListener);
 		saveBtn.addActionListener(saveBtnActionListener);
+		readyBtn.addActionListener(new readyBtnActionListener(mf));
 
 		// Add buttons to group
 		planeGroup.add(upPlaneBtn);
@@ -59,6 +62,7 @@ public class toolBar extends JToolBar {
 		this.add(rightPlaneBtn);
 		this.add(downPlaneBtn);
 		this.add(leftPlaneBtn);
+		this.add(readyBtn);
 	}
 
 	// Define userBtnActionListener
@@ -90,4 +94,21 @@ public class toolBar extends JToolBar {
 			System.out.println("Save button is pressed");
 		}
 	};
+}
+
+
+class readyBtnActionListener implements ActionListener {
+	private MainFrame mf;
+	
+	readyBtnActionListener(MainFrame mf){
+		this.mf = mf;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		mf.skypanel.yourPanel.gameStarted = true;
+		mf.skypanel.myPanel.locked();
+		mf.startFire();
+	}
 }
