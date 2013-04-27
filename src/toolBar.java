@@ -5,6 +5,8 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
@@ -12,9 +14,9 @@ import javax.swing.JToolBar;
  * Title: toolBar.java
  * Description: tooBar class is used to customize the Tool Bar.
  * @author Weicheng Zhu
- * @data 2013. 4. 22. PM 9:49:26
- * @version 0.001
+ * @version 2013. 4. 27. 오전 11:38:59
  */
+
 public class toolBar extends JToolBar {
 	// ToolBar buttons declaration
 	static JButton userBtn = new JButton(new ImageIcon("./img/user.png"));
@@ -32,7 +34,12 @@ public class toolBar extends JToolBar {
 			"./img/leftPlane.png"));
 	static ButtonGroup planeGroup = new ButtonGroup();
 	
+	loginDlg logindlg;
+	
+	static MainFrame mf;
+	
 	public toolBar(String string, int horizontal, MainFrame mf) {
+		this.mf = mf;
 		// Button styles
 		userBtn.setBorderPainted(false);
 		newBtn.setBorderPainted(false);
@@ -42,11 +49,15 @@ public class toolBar extends JToolBar {
 		downPlaneBtn.setBorderPainted(false);
 		leftPlaneBtn.setBorderPainted(false);
 
+		// Dialog window for userBtn
+		logindlg = new loginDlg(this.mf);
+		logindlg.pack();
+		
 		// Button action listener
 		userBtn.addActionListener(userBtnActionListener);
 		newBtn.addActionListener(newBtnActionListener);
 		saveBtn.addActionListener(saveBtnActionListener);
-		readyBtn.addActionListener(new readyBtnActionListener(mf));
+		readyBtn.addActionListener(new readyBtnActionListener(this.mf));
 
 		// Add buttons to group
 		planeGroup.add(upPlaneBtn);
@@ -71,6 +82,7 @@ public class toolBar extends JToolBar {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			AbstractButton abstractBtn = (AbstractButton) e.getSource();
+			logindlg.setVisible(true);
 			System.out.println("User account button is pressed");
 		}
 	};

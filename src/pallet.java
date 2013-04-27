@@ -4,9 +4,9 @@ import java.awt.Color;
  * Title: pallet.java
  * Description: pallet class is a customized color library
  * @author Weicheng Zhu
- * @data 2013. 4. 22. PM 9:45:34
- * @version 0.001
+ * @version 2013. 4. 27. 오전 11:42:42
  */
+
 public class pallet{
 	final static Color waterMelon = new Color(253, 91, 120);
 	final static Color roseRed = new Color(214, 153, 186);

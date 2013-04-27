@@ -5,11 +5,11 @@ import java.util.Stack;
 import javax.swing.*;
 
 /**
- * Title: skyPanel.java Description: skyPanel is used to build single panel.
+ * Title: skyPanel.java 
+ * Description: skyPanel is used to build single panel.
  * 
  * @author Weicheng Zhu
- * @data 2013. 4. 22. PM 9:47:11
- * @version 0.001
+ * @version 2013. 4. 27. 오전 11:42:07
  */
 class skyPanel extends JPanel {
 	public static final int NROW = 10;

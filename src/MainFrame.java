@@ -5,9 +5,9 @@ import java.awt.*;
  * Title: MainFrame.java
  * Description: MainFrame class
  * @author Weicheng Zhu
- * @data 2013. 4. 22. PM 9:44:46
- * @version 0.001
+ * @version 2013. 4. 27. 오전 11:43:23
  */
+
 public class MainFrame extends JFrame {
 
 	// ToolBar

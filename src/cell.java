@@ -7,9 +7,10 @@ import javax.swing.JButton;
  * Title: cell.java
  * Description: cell class is used to control the button's attributes.
  * @author Weicheng Zhu
- * @data 2013. 4. 22. PM 9:36:56
+ * @data 2013. 4. 27. 오전 11:43:59
  * @version 0.001
  */
+
 public class cell extends JButton{
 	public int id; //plane id, available values: 0, 1, 2, 3
 	public int x, y; // cell axes

@@ -4,13 +4,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Title: statPanel.java Description: statPanel is at the foot of the frame used
+ * Title: statPanel.java 
+ * Description: statPanel is at the foot of the frame used
  * to display users' state and statistics.
- * 
  * @author Weicheng Zhu
- * @data 2013. 4. 22. PM 9:48:11
- * @version 0.001
+ * @version 2013. 4. 27. 오전 11:41:17
  */
+
 class statPanel extends JPanel {
 	int headShotNum = 0;
 	int bodyShotNum = 0;
